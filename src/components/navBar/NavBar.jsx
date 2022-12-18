@@ -1,12 +1,23 @@
 import CardWidget from "../cardWidget/CardWidget"
 import "./NavBar.scss"
-import {CgShoppingCart} from "react-icons/cg"
+import { CgShoppingCart } from "react-icons/cg"
+import { useState } from "react";
 
 const NavBar = () => {
+
+
+    const [isDark, setIsDark] = useState(true)
+
+    const tooggleMode = () => {
+
+        setIsDark(!isDark)
+
+    }
+
     return (
         <div>
             <div className="containerHeader container-fluid">
-                <nav className="navbar navbar-dark bg-dark">
+                <nav className={isDark ? "navbar navbar-dark bg-dark" : "navbar  navbar-ligth bg-light"}>
                     <div className="container-fluid">
                         <div>
                             <img
@@ -14,9 +25,10 @@ const NavBar = () => {
                                 alt=""
                             />
                         </div>
+                        <button onClick={tooggleMode} className={isDark ? "cambiar-button-dark" : "cambiar-button-light"}>{isDark ? "cambiar a modo claro" : "cambiar a modo oscuro"}</button>
                         <div className="navbar-brand" href="#">Restaurante el Cangrejo Feliz</div>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                            <div className="containerCrab">
+                            <div className={isDark ? "card-widget-dark" : "card-widget-light"}>
                                 <CardWidget />
                             </div>
                         </button>
@@ -31,10 +43,12 @@ const NavBar = () => {
                                 <li className="nav-item">
                                     <div className="nav-link" href="#">Comida Asiatica</div>
                                 </li>
-                                <li className="nav-item">
-                                    <div className="nav-link active" aria-current="page" href="#">Mi carrito</div>
-                                    <CgShoppingCart/>
-                                </li>
+                                <div className="nav-item">
+                                    <li className={isDark ? "container-cart-dark" : "container-cart-light"}>
+                                        <div className="nav-link active" aria-current="page" href="#">Mi carrito</div>
+                                        <CgShoppingCart className="cart" />
+                                    </li>
+                                </div>
                                 <li className="nav-item dropdown">
                                     <div className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         De la Casa

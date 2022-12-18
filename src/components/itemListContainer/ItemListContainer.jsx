@@ -2,7 +2,8 @@ import { MdOutlineRestaurantMenu } from "react-icons/md";
 import "./ItemListContainer.scss";
 
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = () => {
+
   return (
     <div>
       <div className="containerBienvenida container-fluid">

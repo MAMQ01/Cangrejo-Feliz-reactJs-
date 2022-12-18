@@ -1,0 +1,21 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container-custom-button{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: green;
+}
+
+.container-counter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: red;
+    gap: 20px;
+}
