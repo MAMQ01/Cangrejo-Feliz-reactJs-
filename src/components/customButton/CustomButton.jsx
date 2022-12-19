@@ -1,32 +1,42 @@
 import { useState } from "react";
 import "../customButton/CustomButton.scss"
+import {CgShoppingCart} from "react-icons/cg"
 
-const CustomButton = ({ texto }) => {
+const CustomButton = ({ texto, stock, initial, onAdd }) => {
 
     /* const miEstado = useState(0)
     let counter = miEstado[0]
     let setCounter = miEstado[1] */
 
-    const [counter, setCounter] = useState(0)
+    const [counter, setCounter] = useState(initial)
 
     const sumar = () => {
-        setCounter(counter + 1)
+
+        if (counter < stock) {
+            setCounter(counter + 1)
+        }
     };
 
     const restar = () => {
-        setCounter(counter - 1)
+
+        if (counter > initial){
+            setCounter(counter - 1)
+        }
     };
+
 
     return (
         <>
             <div className="container-custom-button">
-                <div>
-                    <p>Agregue su plato</p>
-                </div>
                 <div className="container-counter">
-                    <button onClick={sumar}>{texto}</button>
-                    <h3>{counter}</h3>
                     <button onClick={restar}>restar</button>
+                    <h3>{counter}</h3>
+                    <button onClick={sumar}>{texto}</button>
+
+                </div>
+                <div className="container-cart">
+                    <p>Agregar a mi carrito</p>
+                    <CgShoppingCart className="cart" />
                 </div>
             </div>
         </>
