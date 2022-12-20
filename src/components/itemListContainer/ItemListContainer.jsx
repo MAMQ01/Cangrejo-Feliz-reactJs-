@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
 import { products } from "../productsMocks";
 import "./ItemListContainer.scss";
-import CustomButton from "../customButton/CustomButton";
+import ProductCard from "../productCard/ProductCard";
 
 
 const ItemListContainer = () => {
@@ -70,13 +70,7 @@ const ItemListContainer = () => {
 
           return (
             <div key={element.name}>
-              <div className="items-container card">
-                <h2>{element.name}</h2>
-                <h3>${element.price}</h3>
-                <p>{element.description}</p>
-                <img className="img-fluid" src={element.img} alt="" />
-                <CustomButton />
-              </div>
+              <ProductCard key={element.name} element={element}/>
             </div>)
         })
       }

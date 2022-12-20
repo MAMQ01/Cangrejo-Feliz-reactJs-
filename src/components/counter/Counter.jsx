@@ -1,12 +1,13 @@
 import { useState } from "react";
 
+
 const Counter = () => {
 
     const [counter, setCounter] = useState(10)
 
     const sumar = () => {
 
-        if (counter < 50) {
+        if (counter < 20) {
             setCounter(counter + 1)
         }
     };
