@@ -20,8 +20,8 @@ const NavBar = () => {
                 <nav className={isDark ? "navbar navbar-dark bg-dark" : "navbar  navbar-ligth bg-light"}>
                     <div className="container-fluid">
                         <div>
-                            <img
-                                src="https://res.cloudinary.com/demo/image/upload/w_70,h_53,c_scale/turtles.jpg"
+                            <img className="logo d-flex"
+                                src="https://res.cloudinary.com/dicnsypv0/image/upload/v1671489883/Logo-cangrejoFeliz_k8i3sy.png"
                                 alt=""
                             />
                         </div>

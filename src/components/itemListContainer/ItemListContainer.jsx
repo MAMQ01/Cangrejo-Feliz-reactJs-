@@ -1,8 +1,46 @@
+import { useEffect, useState } from "react";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
+import { products } from "../productsMocks";
 import "./ItemListContainer.scss";
+import CustomButton from "../customButton/CustomButton";
 
 
 const ItemListContainer = () => {
+
+  const [items, setItems] = useState([])
+
+  useEffect(() => {
+    const task = new Promise((resolve, reject) => {
+
+      setTimeout(() => {
+
+        resolve(products)
+
+      }, 2000);
+
+    })
+
+    task
+      .then((res) => { setItems(res) })
+      .catch((err) => { console.log("Se rechazo la operacion") })
+
+    console.log("se hizo la peticion");
+  }, [])
+
+  console.log(items)
+
+  //alternativa cuando viene de una base en el backend
+
+  /* let task = fetch("https://jsonplaceholder.typicode.com/users") */
+
+
+  /* let task = fetch("https://jsonplaceholder.typicode.com/users")
+  
+      task
+        .then((res) => { console.log(res.json()); })
+        .catch((err) => { console.log("Se rechazo la operacion") })
+  
+    console.log("se hizo la peticion"); */
 
   return (
     <div>
@@ -27,6 +65,21 @@ const ItemListContainer = () => {
           <MdOutlineRestaurantMenu style={{ color: "#37FF8B" }} />
         </div>
       </div>
+      {
+        items.map((element) => {
+
+          return (
+            <div key={element.name}>
+              <div className="items-container card">
+                <h2>{element.name}</h2>
+                <h3>${element.price}</h3>
+                <p>{element.description}</p>
+                <img className="img-fluid" src={element.img} alt="" />
+                <CustomButton />
+              </div>
+            </div>)
+        })
+      }
     </div>
   )
 }
