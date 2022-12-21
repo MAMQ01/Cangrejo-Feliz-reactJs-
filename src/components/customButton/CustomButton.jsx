@@ -33,10 +33,10 @@ const CustomButton = ({ /* texto, */ stock, initial, onAdd }) => {
                     <h3>{counter}</h3>
                     <button onClick={sumar}>sumar</button>{/* {texto} */}
                 </div>
-                <div className="container-cart">
-                    <p>Agregar a mi carrito</p>
+                <button  className="container-cart">
+                    <p onClick={()=> onAdd(counter)}>Agregar a mi carrito</p>
                     <CgShoppingCart className="cart" />
-                </div>
+                </button>
             </div>
         </>
     )

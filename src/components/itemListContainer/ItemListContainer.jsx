@@ -3,20 +3,26 @@ import { MdOutlineRestaurantMenu } from "react-icons/md";
 import { products } from "../productsMocks";
 import "./ItemListContainer.scss";
 import ProductCard from "../productCard/ProductCard";
+import { useParams } from "react-router-dom";
 
 
 const ItemListContainer = () => {
 
+  const { categoryName } = useParams()
+
   const [items, setItems] = useState([])
 
   useEffect(() => {
+
+    const productosFiltered = products.filter( productos => productos.category === categoryName)
+
     const task = new Promise((resolve, reject) => {
 
       setTimeout(() => {
 
-        resolve(products)
+        resolve( categoryName ? productosFiltered : products )
 
-      }, 2000);
+      }, 500);
 
     })
 
@@ -25,9 +31,10 @@ const ItemListContainer = () => {
       .catch((err) => { console.log("Se rechazo la operacion") })
 
     console.log("se hizo la peticion");
-  }, [])
+  }, [ categoryName ])
 
   console.log(items)
+
 
   //alternativa cuando viene de una base en el backend
 

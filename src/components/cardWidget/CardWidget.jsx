@@ -1,14 +1,14 @@
 import "./CardWidget.scss";
-import { GiSadCrab} from "react-icons/gi";
+import { CgShoppingCart } from "react-icons/cg";
+import { Link } from "react-router-dom";
 
 
 const CardWidget = () => {
     return (
-        <div className="containerCrab">
-            <GiSadCrab style={{
-                fontSize: "2rem"
-            }} />
-        </div>
+        <Link to="/cardWidget" className="nav-link active" aria-current="page" href="#">
+            Mi carrito
+            <CgShoppingCart style={{ fontSize: "1.3rem" }} />
+        </Link>
     )
 }
 

@@ -3,26 +3,25 @@ import { useState } from "react";
 
 const Counter = () => {
 
-    const [counter, setCounter] = useState(10)
+    const [counter, setCounter] = useState(0)
 
     const sumar = () => {
 
-        if (counter < 20) {
             setCounter(counter + 1)
-        }
     };
 
     const restar = () => {
 
-        if (counter > 10){
+        if (counter > 0){
             setCounter(counter - 1)
         }
     };
 
     return (
-        <div>
-            <button onClick={sumar}>Sumar</button>
+        <div className="container-counter">
             <button onClick={restar}>restar</button>
+            <h3>{counter}</h3>
+            <button onClick={sumar}>Sumar</button>
         </div>
     )
 }

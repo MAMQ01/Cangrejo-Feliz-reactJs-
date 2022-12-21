@@ -1,0 +1,12 @@
+.items-container {
+    gap: 1.3rem;
+    flex-wrap: nowrap;
+}
+
+.card {
+    margin: 1.3rem;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
