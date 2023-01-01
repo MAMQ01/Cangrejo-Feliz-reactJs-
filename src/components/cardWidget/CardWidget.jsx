@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const CardWidget = () => {
     return (
         <Link to="/cardWidget" className="nav-link active" aria-current="page" href="#">
-            Mi carrito
+            Mi carrito 12
             <CgShoppingCart style={{ fontSize: "1.3rem" }} />
         </Link>
     )

@@ -1,12 +1,37 @@
+
 .items-container {
-    gap: 1.3rem;
-    flex-wrap: nowrap;
+    display: flex;
+    flex-direction: row;
+    gap: 0.3rem;
+    h2{
+        padding: 0;
+        margin: 0;
+    }
+
+    h3{
+        padding: 0;
+        margin: 0;
+    }
+
+    p{
+        padding: 0;
+        margin: 0;
+    }
+
+    .items-container-tittle {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        color: black;
+        align-items: baseline;
+        justify-content: space-between ;
+    }
 }
 
 .card {
-    margin: 1.3rem;
+    padding: 5px 10px;
+    margin: 20px;
     width: 40%;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
 }

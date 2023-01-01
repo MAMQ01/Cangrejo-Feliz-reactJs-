@@ -1,17 +1,22 @@
 import { Link } from "react-router-dom";
 import CustomButton from "../customButton/CustomButton";
 import "../productCard/ProductCard.scss"
-
+import { MdOutlineRestaurantMenu } from "react-icons/md"
 
 const ProductCard = ({ element }) => {
 
-    const onAdd = ( quantity ) => {
-        console.log(`la canditad de ${element.name} es`, quantity );
+    const onAdd = (quantity) => {
+        console.log(`la canditad de ${element.name} es`, quantity);
     }
 
     return (
         <div className="items-container card">
-            <h2>{element.name}</h2>
+            <div className="items-container-tittle">
+                <div className="containerMenu">
+                    <MdOutlineRestaurantMenu style={{ color: "#37FF8B" }} />
+                </div>
+                <h2>{element.name}</h2>
+            </div>
             <h3>${element.price}</h3>
             <p>{element.description}</p>
             <Link to={`/itemDetail/${element.id}`}>Ver más</Link>

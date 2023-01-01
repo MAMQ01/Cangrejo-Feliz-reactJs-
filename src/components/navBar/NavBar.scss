@@ -1,6 +1,6 @@
 * {
-    margin: 0;
-    padding: 0;
+    align-items: center;
+
 }
 
 .navbar {
@@ -9,7 +9,7 @@
     padding-bottom: 0;
 }
 
-.logo{
+.logo {
     width: 80px;
 }
 
@@ -35,25 +35,26 @@
     }
 }
 
-.cambiar-button-dark{
+.cambiar-button-dark {
     background-color: transparent;
     border-style: none;
     color: white;
 }
-.cambiar-button-light{
+
+.cambiar-button-light {
     background-color: transparent;
     border-style: none;
     color: black;
 }
 
-.navbar-light{
+.navbar-light {
     background-color: lightcyan;
 }
 
-.card-widget-dark{
+.card-widget-dark {
     color: white
 }
 
-.card-widget-light{
+.card-widget-light {
     color: black
 }
