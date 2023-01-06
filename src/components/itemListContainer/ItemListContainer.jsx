@@ -50,7 +50,7 @@ const ItemListContainer = () => {
 
   return (
     <div>
-      <div className="containerBienvenida container-fluid">
+      {/* <div className="containerBienvenida container-fluid">
         <button data-text="Awesome" className="button">
           <span className="actual-text">&nbsp;Bienvenido&nbsp;</span>
           <span className="hover-text" aria-hidden="true">&nbsp;Bienvenido&nbsp;</span>
@@ -68,7 +68,7 @@ const ItemListContainer = () => {
       </div>
       <div>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis fuga quae culpa provident modi aut debitis earum sed ullam inventore?</p>
-      </div>
+      </div> */}
       {
         items.map((element) => {
 

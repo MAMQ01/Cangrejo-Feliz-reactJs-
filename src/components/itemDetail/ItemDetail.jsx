@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import CustomButton from "../customButton/CustomButton";
-import "./ProductCard.scss"
+import "./ItemDetail.scss"
 import { MdOutlineRestaurantMenu } from "react-icons/md"
 
-const ProductCard = ({ element }) => {
+const ItemDetail = ({ element }) => {
 
     const onAdd = (quantity) => {
         console.log(`la canditad de ${element.name} es`, quantity);
@@ -26,6 +26,6 @@ const ProductCard = ({ element }) => {
     )
 }
 
-export default ProductCard
+export default ItemDetail
 
 // {/* <CustomButton texto={"sumar"} initial={1} stock={10} onAdd={onAdd} /> */}
