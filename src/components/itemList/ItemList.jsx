@@ -1,17 +1,13 @@
 import { Link } from "react-router-dom";
-import CustomButton from "../customButton/CustomButton";
-import "./ProductCard.scss"
+import "./ItemList.scss"
 import { MdOutlineRestaurantMenu } from "react-icons/md"
 
-const ProductCard = ({ element }) => {
 
-    const onAdd = (quantity) => {
-        console.log(`la canditad de ${element.name} es`, quantity);
-    }
+const ItemList = ({ element }) => {
 
     return (
         <div className="items-container card">
-            <div className="items-container-tittle">
+            <div className="tittle">
                 <div className="containerMenu">
                     <MdOutlineRestaurantMenu style={{ color: "#37FF8B" }} />
                 </div>
@@ -19,13 +15,14 @@ const ProductCard = ({ element }) => {
             </div>
             <h3>${element.price}</h3>
             <p>{element.description}</p>
-            <Link to={`/itemDetail/${element.id}`}>Ver más</Link>
+            <Link to={`/itemDetail/${element.id}`}>
+                <p>Ver más</p>
+            </Link>
             <img className="img-fluid" src={element.img} alt="" />
-            <CustomButton texto={"sumar"} initial={0} stock={element.stock} onAdd={onAdd} />
         </div>
     )
 }
 
-export default ProductCard
+export default ItemList
 
 // {/* <CustomButton texto={"sumar"} initial={1} stock={10} onAdd={onAdd} /> */}

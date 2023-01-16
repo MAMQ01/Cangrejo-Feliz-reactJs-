@@ -1,0 +1,31 @@
+
+
+.itemDetailContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    .itemDetailContainerDescription{
+        text-align: justify;
+        h2{
+            text-align: center;
+        }
+        h3{
+            text-align: center;
+        }
+        p{
+            text-align: justify;
+        }
+    }
+    .counterContainer{
+        background-color: aqua;
+    }
+    .itemCountContainer{
+        width: auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+}
+

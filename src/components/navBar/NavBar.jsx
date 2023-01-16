@@ -17,7 +17,7 @@ const NavBar = () => {
 
     return (
         <div>
-            <div className="containerHeader container-fluid">
+            <div className="container-fluid">
                 <nav className={isDark ? "navbar navbar-dark bg-dark" : "navbar  navbar-ligth bg-light"}>
                     <div className="container-fluid">
                         <div>

@@ -1,18 +1,10 @@
-
-import { useContext } from "react"
-import { CartContext } from "../../context/CartContext"
-import CustomButton from "../customButton/CustomButton"
-
+import ResumeCart from "./ResumeCart"
+import React from 'react'
 
 const Cart = () => {
-
-  const {cart} = useContext( CartContext )
-
-  console.log(cart)
-
   return (
-    <div>
-      <CustomButton/>
+    <div className="containerCart">
+      <ResumeCart className="resumeCart" />
     </div>
   )
 }

@@ -1,37 +1,42 @@
 
 .items-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 0.3rem;
     h2{
-        padding: 0;
-        margin: 0;
+        margin: 5px;
     }
 
     h3{
-        padding: 0;
-        margin: 0;
+        margin: 10px;
     }
 
     p{
-        padding: 0;
+        padding: 5px;
         margin: 0;
     }
 
-    .items-container-tittle {
+
+    .tittle {
         width: 100%;
         display: flex;
         flex-direction: row;
         color: black;
         align-items: baseline;
-        justify-content: space-around ;
+        justify-content: center ;
+    }
+
+    a{
+        text-decoration: none;
     }
 }
 
 .card {
-    padding: 5px 10px;
     margin: 20px;
     width: 40%;
     display: flex;
     flex-direction: column;
+    .img-fluid{
+        padding: 0;
+    }
 }

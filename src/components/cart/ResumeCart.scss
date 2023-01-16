@@ -1,0 +1,54 @@
+.containerResume {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: rgb(242, 242, 242);
+    margin: 0.5rem;
+    border: 0.5px solid rgb(77, 77, 77);
+    border-radius: 2px;
+
+    .containerResumeItemCart {
+        margin:0.5rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: lightgrey;
+        border: 0.5px solid rgb(77, 77, 77);
+        border-radius: 2px;
+
+        .containerResumeItemCartImg {
+            max-width: 60%;
+        }
+
+        .containerResumeItemCartDescription {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            padding: 10px;
+            margin: 10px;
+            gap: 0.3rem;
+
+            h2 {
+                text-align: center;
+            }
+
+            h3 {
+                text-align: center;
+            }
+
+            h4 {
+                text-align: center;
+            }
+        }
+    }
+
+    .containerButtonDelete {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
