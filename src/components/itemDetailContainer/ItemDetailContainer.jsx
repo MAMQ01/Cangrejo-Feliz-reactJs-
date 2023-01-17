@@ -22,14 +22,14 @@ const ItemDetailContainer = () => {
     const ref = doc(itemCollection, id)
 
     getDoc(ref)
-    .then(res => {
-      setProduct(
-        {
-          id: res.id,
-          ...res.data()
-        }
-      )
-    })
+      .then(res => {
+        setProduct(
+          {
+            id: res.id,
+            ...res.data()
+          }
+        )
+      })
 
   }, [id])
 
@@ -54,12 +54,12 @@ const ItemDetailContainer = () => {
           <img className="img-fluid" src={product.img} alt="" />
         </div>
       </div>
+
       <div className='itemCountContainer container-fluid col-3'>
-        
         <ItemCount initial={quantity} stock={product.stock} onAdd={onAdd} />
         <div>
-          <Link to={"/"}>
-          <button className='btn btn-dark'>SeguirComprando</button>
+          <Link to="/">
+            <button className='btn btn-dark'>SeguirComprando</button>
           </Link>
         </div>
       </div>

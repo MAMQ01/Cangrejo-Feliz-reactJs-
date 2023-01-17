@@ -2,7 +2,7 @@ import { useContext, useState } from 'react'
 import { CartContext } from '../../context/CartContext'
 import "../cart/ResumeCart.scss"
 import Form from '../form/Form'
-import { Link } from 'react-router-dom'
+import NoInfo from "../noInfo/NoInfo"
 
 const ResumeCart = () => {
 
@@ -57,9 +57,8 @@ const ResumeCart = () => {
                                     <button onClick={() => clearCart()} className="btn btn-danger">Vaciar Carrito</button>
                                 </div>
                             </div> :
-                            <Link to={"/"}>
-                                <button className='btn btn-success'>Seguir Comprando</button>
-                            </Link>
+
+                            <NoInfo />
                     )
             }
 

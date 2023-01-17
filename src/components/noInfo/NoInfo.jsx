@@ -1,10 +1,13 @@
-
+import { Link } from "react-router-dom";
 import React from 'react'
 
 const NoInfo = () => {
   return (
     <div>
-      <p>Sin informacion</p>
+      <h2>No tienes agregado ningun item</h2>
+      <Link to={"/"}>
+        <button className='btn btn-success'>Seguir Comprando</button>
+      </Link>
     </div>
   )
 }

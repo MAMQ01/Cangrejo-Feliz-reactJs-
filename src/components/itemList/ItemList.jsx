@@ -13,12 +13,12 @@ const ItemList = ({ element }) => {
                 </div>
                 <h2>{element.name}</h2>
             </div>
+            <img className="img-fluid" src={element.img} alt="" />
             <h3>${element.price}</h3>
             <p>{element.description}</p>
             <Link to={`/itemDetail/${element.id}`}>
                 <p>Ver más</p>
             </Link>
-            <img className="img-fluid" src={element.img} alt="" />
         </div>
     )
 }
