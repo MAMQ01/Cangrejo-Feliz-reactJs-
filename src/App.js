@@ -41,10 +41,3 @@ function App(element) {
 }
 
 export default App;
-
-/*     <div>
-      <NavBar />
-      <ItemListContainer />
-      <CustomButton texto={"sumar"} initial={1} stock={10} onAdd={onAdd}/>
-      <ItemDetailContainer />
-    </div> */

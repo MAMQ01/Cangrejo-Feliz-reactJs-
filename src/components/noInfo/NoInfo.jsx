@@ -3,7 +3,9 @@ import React from 'react'
 
 const NoInfo = () => {
   return (
-    <div>NoInfo</div>
+    <div>
+      <p>Sin informacion</p>
+    </div>
   )
 }
 

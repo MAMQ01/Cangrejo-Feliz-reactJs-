@@ -10,7 +10,7 @@
     border-radius: 2px;
 
     .containerResumeItemCart {
-        margin:0.5rem;
+        margin: 0.5rem;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -50,5 +50,19 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+
+    .containerCheckOut {
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(227, 253, 209);
+        gap: 1rem;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        border: 0.5px solid rgb(77, 77, 77);
+        border-radius: 2px;
+
     }
 }

@@ -1,31 +1,46 @@
-import { useContext, useState } from "react";
-import { CartContext } from "../../context/CartContext";
+import { useState } from "react";
 import "../form/Form.scss"
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
+import { db } from "../../firebaseConfig"
+import { addDoc, collection, serverTimestamp, doc, updateDoc } from "firebase/firestore";
 
 const Form = () => {
 
-    const {getTotalPrice} = useContext(CartContext)
-    
-    const [userData, setUserData] = useState({ name: "", lastName: "" })
+    const { getTotalPrice, setOrderId, clearCart, orderId,cart } = useContext(CartContext)
+
+    const total = getTotalPrice()
+
+    const [userData, setUserData] = useState({ name: "", email: "", phone: "" })
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(userData);
-    };
-
-    const handleKey = (event) => {
-
-        if (event.key !== "a" && event.key !== "e" && event.key !== "i" && event.key !== "o" && event.key !== "u") {
-            console.log(event.key)
-
-        } else {
-
-            event.preventDefault()
-
+        const order = {
+            buyer: userData,
+            items: cart,
+            total: total,
+            date: serverTimestamp()
         }
 
-    }
+        const orderCollection = collection(db, "orders")
 
+        addDoc(orderCollection, order)
+            .then(res => setOrderId(res.id))
+
+
+        cart.map(product =>  (
+            updateDoc(doc(db, "products", product.id), {stock: product.stock - product.quantity})
+         ) )
+
+        clearCart()
+
+    };
+
+    if (orderId) {
+        return <div>
+            <h1>su orden es: {orderId}</h1>
+        </div>
+    }
 
     return (
         <div className="formContainer">
@@ -36,47 +51,25 @@ const Form = () => {
                     name="name"
                     onChange={(e) => setUserData({ ...userData, name: e.target.value })}
                     value={userData.name}
-                    onKeyDown={handleKey}
                 />
                 <input
                     type="text"
-                    placeholder="Ingrese su Apellido"
-                    name="lastName"
-                    onChange={(e) => setUserData({ ...userData, lastName: e.target.value })}
-                    value={userData.lastName}
+                    placeholder="Ingrese su telefono"
+                    phone="phone"
+                    onChange={(e) => setUserData({ ...userData, phone: e.target.value })}
+                    value={userData.phone}
                 />
-                <button type="submit">Enviar</button>
-                <div className="containerCheckOut">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias itaque voluptate voluptas, quidem accusamus dicta dolores dolorum, aliquid ad dolor accusantium nihil fugit amet, numquam cupiditate quis nobis ut iure.</p>
-                    <h3>Precio Final ${getTotalPrice()}</h3>
-                    <button>{`pagar`}</button>
-                </div>
+                <input
+                    type="email"
+                    placeholder="Ingrese su email"
+                    email="email"
+                    onChange={(e) => setUserData({ ...userData, email: e.target.value })}
+                    value={userData.email}
+                />
+                <button type="submit">Pagar</button>
             </form>
         </div>
     );
 };
 
 export default Form;
-
-
-    /* creare un estado Objeto para tener todas las propiedades que necesito, por eso comento las siguientes lineas */
-
-    /* const [name, setName] = useState("");
-    const [lastName, setlastName] = useState(""); */
-
-            /*console.log(event.target.elements.name.value);
-              console.log(event.target.elements.lastName.value); */
-        /* console.log(`Hola ${userData.name} ${userData.lastName}, cómo estás?`); */
-
-        
-    //Aca hay dos formas de usar un estado en un objeto, mediante una función por fuera del js o refactorizando en el return 
-
-    /* const handleChangeName = (event) => {
-        setName(event.target.value)
-    } */
-
-    /* const handleChangelastName = (event) => {
-        setUserData({ ...userData, lastName: event.target.value })
-    } */
-
-    /*console.log(name, lastName); */

@@ -7,6 +7,8 @@ const CartContextProvider = ({ children }) => {
 
   const [cart, setCart] = useState([])
 
+  const [orderId, setOrderId ] = useState(null)
+
   const addToCart = (element) => {
 
     if (isInCart(element)) {
@@ -64,7 +66,9 @@ const CartContextProvider = ({ children }) => {
     clearCart,
     getQuantityById,
     getTotalPrice,
-    deleteItemById
+    deleteItemById,
+    setOrderId,
+    orderId
   }
 
   return (

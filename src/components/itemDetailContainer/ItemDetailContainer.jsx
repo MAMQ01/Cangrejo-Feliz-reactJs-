@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import "../itemDetailContainer/ItemDetailContainer.scss"
 import ItemCount from '../itemCount/ItemCount'
 import { CartContext } from '../../context/CartContext'
@@ -14,12 +14,8 @@ const ItemDetailContainer = () => {
 
   const { id } = useParams()
 
-  /* console.log(id) */
 
   useEffect(() => {
-
-    // const productSelected = products.find(producto => producto.id === parseInt(id))
-    // setProduct(productSelected)
 
     const itemCollection = collection(db, "products")
 
@@ -37,14 +33,7 @@ const ItemDetailContainer = () => {
 
   }, [id])
 
-  /* console.log(product); */
-
-  /* const onAdd = (quantity) => {
-    console.log(`la canditad de ${"Elem agg, prev import promise"} es`, quantity);
-  } */
-
   const onAdd = (quantity) => {
-    console.log(`la canditad de ${product.name} es`, quantity);
     addToCart(
       {
         ...product,
@@ -54,7 +43,6 @@ const ItemDetailContainer = () => {
   }
 
   const quantity = getQuantityById(product.id)
-  console.log(quantity)
 
   return (
     <div className='itemDetailContainer flex col-12'>
@@ -67,7 +55,13 @@ const ItemDetailContainer = () => {
         </div>
       </div>
       <div className='itemCountContainer container-fluid col-3'>
+        
         <ItemCount initial={quantity} stock={product.stock} onAdd={onAdd} />
+        <div>
+          <Link to={"/"}>
+          <button className='btn btn-dark'>SeguirComprando</button>
+          </Link>
+        </div>
       </div>
     </div>
   )

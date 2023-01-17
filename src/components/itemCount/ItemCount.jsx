@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import "./ItemCount.scss"
 import { CgShoppingCart } from "react-icons/cg"
+import CardWidget from "../cardWidget/CardWidget";
 
-const ItemCount = ({ /* texto, */ stock, initial=1, onAdd }) => {
+const ItemCount = ({ /* texto, */ stock, initial = 0, onAdd }) => {
 
     /* const miEstado = useState(0)
     let counter = miEstado[0]
@@ -10,9 +11,9 @@ const ItemCount = ({ /* texto, */ stock, initial=1, onAdd }) => {
 
     const [counter, setCounter] = useState(initial)
 
-    useEffect( ()=>{
+    useEffect(() => {
         setCounter(initial)
-    },[initial]) 
+    }, [initial])
 
     const sumar = () => {
 
@@ -28,11 +29,22 @@ const ItemCount = ({ /* texto, */ stock, initial=1, onAdd }) => {
         }
     };
 
+    if (counter <= 0) {
+        return <div>
+            <div className="containerCounter">
+                <h3>agrega un producto</h3>
+                <button onClick={sumar}>sumar</button>{/* {texto} */}
+            </div>
+            <div className="containerCart">
+                <CardWidget />
+            </div>
+        </div>
+    }
 
     return (
         <>
             <div className="containerCounter">
-                <button onClick={restar}>restar</button>
+                <button onClick={restar}>reducir</button>
                 <h3>{counter}</h3>
                 <button onClick={sumar}>sumar</button>{/* {texto} */}
             </div>
@@ -41,6 +53,7 @@ const ItemCount = ({ /* texto, */ stock, initial=1, onAdd }) => {
                     <p>Agregar a mi carrito</p>
                     <CgShoppingCart className="cart" />
                 </button>
+                <CardWidget />
             </div>
         </>
     )

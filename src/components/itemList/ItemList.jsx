@@ -24,5 +24,3 @@ const ItemList = ({ element }) => {
 }
 
 export default ItemList
-
-// {/* <CustomButton texto={"sumar"} initial={1} stock={10} onAdd={onAdd} /> */}
