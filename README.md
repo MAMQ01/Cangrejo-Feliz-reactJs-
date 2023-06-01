@@ -7,8 +7,6 @@
 -Le faltan un monton, creo apenas esta en desarrollo. No es su version final
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
--Aun no conozco suficiente mi codigo para explicarlo todo 
-
 ## Scripts disponibles
 
 Correr con:
